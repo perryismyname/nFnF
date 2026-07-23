@@ -1,17 +1,19 @@
 /* ============================================================
-   NAS-T Fab & Finish — shared styles
+   NAS-T Fab & Finish LLC — shared styles
+   Palette keyed to the logo: electric blue + red on graphite.
    Edit colors here and every page updates.
    ============================================================ */
 
 :root {
-  --bg:        #14161a;   /* graphite base */
-  --bg-2:      #1b1e24;   /* raised panel */
-  --bg-3:      #23272f;   /* hover / card */
-  --ink:       #eef1f5;   /* primary text */
-  --muted:     #98a2b0;   /* secondary text */
-  --line:      #2e333c;   /* hairline rules */
-  --accent:    #c9772f;   /* burnt copper */
-  --accent-hi: #e6924a;   /* brighter copper for hover */
+  --bg:        #10141b;
+  --bg-2:      #161c26;
+  --bg-3:      #1e2531;
+  --ink:       #eef3fa;
+  --muted:     #93a1b5;
+  --line:      #28313f;
+  --blue:      #0060d9;
+  --blue-hi:   #2b7ff0;
+  --red:       #ff0000;
   --maxw:      1080px;
 }
 
@@ -25,7 +27,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* condensed industrial display face via system fallback stack */
 h1, h2, h3, .nav-links a, .logo-text {
   font-family: "Arial Narrow", "Helvetica Neue Condensed", "Roboto Condensed", sans-serif;
   letter-spacing: 0.02em;
@@ -42,24 +43,28 @@ h1, h2, h3, .nav-links a, .logo-text {
   top: 0;
   z-index: 50;
 }
+.banner::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(to right, var(--blue) 0%, var(--blue) 82%, var(--red) 82%, var(--red) 100%);
+}
 .banner-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: 76px;
+  min-height: 82px;
 }
-.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
-.logo img { height: 48px; width: auto; display: block; }
-.logo-text { font-size: 1.25rem; font-weight: 700; }
-.logo-text .accent { color: var(--accent); }
+.logo { display: flex; align-items: center; text-decoration: none; color: var(--ink); }
+.logo img { height: 42px; width: auto; display: block; }
 
-.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 6px 0;
   position: relative;
   transition: color 0.15s ease;
@@ -70,18 +75,17 @@ h1, h2, h3, .nav-links a, .logo-text {
   position: absolute;
   left: 0; bottom: 0;
   width: 0; height: 2px;
-  background: var(--accent);
+  background: var(--blue);
   transition: width 0.2s ease;
 }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-/* mobile nav toggle */
 .nav-toggle { display: none; background: none; border: 0; color: var(--ink); font-size: 1.6rem; cursor: pointer; }
 
 /* ---------- SECTION SCAFFOLD ---------- */
 section { padding: 72px 0; border-bottom: 1px solid var(--line); }
 .eyebrow {
-  color: var(--accent);
+  color: var(--blue-hi);
   font-size: 0.8rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -92,50 +96,51 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.1; 
 h3 { font-size: 1.35rem; font-weight: 700; }
 p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 62ch; }
 
-/* ---------- CAROUSEL ---------- */
-.carousel { position: relative; overflow: hidden; }
-.track {
-  display: flex;
-  gap: 18px;
-  transition: transform 0.5s ease;
-  will-change: transform;
+/* ---------- HERO ---------- */
+.hero { text-align: center; padding: 76px 0 64px; }
+.hero-logo { width: min(520px, 82%); height: auto; margin: 0 auto 30px; display: block; }
+.hero h1 { font-size: clamp(1.9rem, 4.6vw, 3rem); font-weight: 800; line-height: 1.1; }
+.hero .lead { margin-left: auto; margin-right: auto; }
+.location {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-left: 3px solid var(--red);
+  padding-left: 10px;
+  margin-bottom: 14px;
 }
-.slide {
-  flex: 0 0 clamp(240px, 32%, 340px);
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.slide img { width: 100%; height: 220px; object-fit: cover; display: block; background: var(--bg-3); }
-.slide .cap { padding: 14px 16px; }
-.slide .cap h3 { font-size: 1rem; margin-bottom: 4px; }
-.slide .cap p { color: var(--muted); font-size: 0.9rem; }
 
-.carousel-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 44px; height: 44px;
-  background: var(--bg-3); color: var(--ink);
-  border: 1px solid var(--line); border-radius: 50%;
-  font-size: 1.3rem; cursor: pointer; z-index: 5;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s ease;
+/* ---------- HOME PHOTO DUO ---------- */
+.photo-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.photo-duo img {
+  width: 100%; height: 340px; object-fit: cover;
+  border: 1px solid var(--line); border-radius: 4px; background: var(--bg-2); display: block;
 }
-.carousel-btn:hover { background: var(--accent); border-color: var(--accent); }
-.carousel-btn.prev { left: 8px; }
-.carousel-btn.next { right: 8px; }
 
-/* ---------- FEATURE BLOCKS (alternating) ---------- */
+/* ---------- FEATURE BLOCKS ---------- */
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .feature.reverse .feature-img { order: 2; }
-.feature-img img { width: 100%; border-radius: 4px; border: 1px solid var(--line); display: block; background: var(--bg-2); }
+.feature-img img {
+  width: 100%; border-radius: 4px; border: 1px solid var(--line);
+  display: block; background: var(--bg-2);
+}
 .feature-body h2 { margin-bottom: 6px; }
 
-/* ---------- CUSTOM ORDERS CALLOUT ---------- */
+/* ---------- GALLERY ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.gallery img {
+  width: 100%; height: 240px; object-fit: cover;
+  border: 1px solid var(--line); border-radius: 4px; background: var(--bg-2); display: block;
+}
+
+/* ---------- CALLOUT ---------- */
 .callout {
   background: var(--bg-2);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--blue);
   border-radius: 4px;
   padding: 36px 40px;
 }
@@ -148,8 +153,8 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
 /* ---------- BUTTONS ---------- */
 .btn {
   display: inline-block;
-  background: var(--accent);
-  color: #14161a;
+  background: var(--blue);
+  color: #ffffff;
   font-weight: 700;
   text-decoration: none;
   padding: 12px 26px;
@@ -159,16 +164,31 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
   font-size: 1rem;
   transition: background 0.15s ease;
 }
-.btn:hover { background: var(--accent-hi); }
-.btn-ghost {
-  background: transparent; color: var(--ink);
+.btn:hover { background: var(--blue-hi); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn-ghost:hover { border-color: var(--blue); background: var(--bg-3); }
+
+/* ---------- SERVICE CARDS (home) ---------- */
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+.svc-card {
+  background: var(--bg-2);
   border: 1px solid var(--line);
+  border-top: 3px solid var(--blue);
+  border-radius: 4px;
+  padding: 26px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
-.btn-ghost:hover { border-color: var(--accent); background: var(--bg-3); }
+.svc-card:hover { background: var(--bg-3); transform: translateY(-3px); }
+.svc-card h3 { margin-bottom: 8px; }
+.svc-card p { color: var(--muted); font-size: 0.95rem; }
+.svc-card .go { color: var(--blue-hi); font-weight: 700; font-size: 0.9rem; display: inline-block; margin-top: 14px; }
 
 /* ---------- CONTACT ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.contact-info a { color: var(--accent); text-decoration: none; }
+.contact-info a { color: var(--blue-hi); text-decoration: none; }
 .contact-info a:hover { text-decoration: underline; }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
@@ -182,27 +202,26 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
   font-size: 1rem;
   font-family: inherit;
 }
-.field input:focus, .field textarea:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--blue); border-color: var(--blue); }
 .field textarea { resize: vertical; min-height: 130px; }
 
-/* ---------- FOOTER ---------- */
-footer {
-  padding: 28px 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-/* ---------- PAGE HERO (sub-pages) ---------- */
+/* ---------- PAGE HERO ---------- */
 .page-hero { padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
 .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; }
 .page-hero p { color: var(--muted); margin-top: 12px; max-width: 60ch; }
 
+/* ---------- FOOTER ---------- */
+footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+.footer-logo { width: 220px; height: auto; margin: 0 auto 16px; display: block; opacity: 0.92; }
+
 /* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .svc-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 760px) {
   .nav-links {
     display: none;
-    position: absolute; top: 76px; left: 0; right: 0;
+    position: absolute; top: 84px; left: 0; right: 0;
     flex-direction: column; gap: 0;
     background: var(--bg-2); border-bottom: 1px solid var(--line);
     padding: 8px 24px 16px;
@@ -210,39 +229,8 @@ footer {
   .nav-links.open { display: flex; }
   .nav-links a { padding: 12px 0; width: 100%; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
-  .feature, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .feature, .contact-grid, .photo-duo { grid-template-columns: 1fr; gap: 28px; }
   .feature.reverse .feature-img { order: 0; }
-  section { padding: 52px 0; }
-}
-
-/* ============================================================
-   HOME + SERVICES additions (two-page layout)
-   ============================================================ */
-
-/* ---------- HERO ---------- */
-.hero { text-align: center; padding: 72px 0 64px; }
-.hero-logo { height: 120px; width: auto; margin: 0 auto 28px; display: block; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; }
-.hero .lead { margin-left: auto; margin-right: auto; }
-
-/* ---------- HOME PHOTO DUO ---------- */
-.photo-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.photo-duo img {
-  width: 100%; height: 320px; object-fit: cover;
-  border: 1px solid var(--line); border-radius: 4px; background: var(--bg-2); display: block;
-}
-
-/* ---------- SERVICES GALLERY ---------- */
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-.gallery img {
-  width: 100%; height: 240px; object-fit: cover;
-  border: 1px solid var(--line); border-radius: 4px; background: var(--bg-2); display: block;
-}
-
-/* ---------- FOOTER LOGO ---------- */
-.footer-logo { height: 56px; width: auto; margin: 0 auto 14px; display: block; opacity: 0.9; }
-
-@media (max-width: 760px) {
-  .photo-duo { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
+  section { padding: 52px 0; }
 }

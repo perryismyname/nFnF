@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser Engraving — NAS-T Fab &amp; Finish LLC</title>
+  <meta name="description" content="Deep engraving and laser engraving for personalization on firearms and more.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="banner">
+    <div class="wrap banner-inner">
+      <a class="logo" href="index.html">
+        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav-links" id="nav">
+        <a href="index.html">Home</a>
+        <a href="porting.html">Porting</a>
+        <a href="cerakote.html">Cerakote</a>
+        <a href="engraving.html" class="active">Laser Engraving</a>
+        <a href="contact.html">Contact / Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Service</p>
+      <h1>Laser Engraving</h1>
+      <p>Please reach out for quoting or questions.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap feature">
+      <div class="feature-img"><img src="photos/engraving-1.jpg" alt="Laser engraving work"></div>
+      <div class="feature-body">
+        <h2>Deep engraving &amp; personalization</h2>
+        <p class="lead">
+          We offer deep engraving and laser engraving for personalization &mdash; on
+          firearms and beyond. Whether it is a name, a custom design, or a full
+          pattern, we can put your mark on it.
+        </p>
+        <p class="lead" style="margin-top:16px;">
+          Firearms are not our only scope. If you have something you would like
+          engraved, feel free to reach out for a quote!
+        </p>
+        <p style="margin-top:20px;"><a class="btn" href="contact.html">Request a quote</a></p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="gallery">
+        <img src="photos/engraving-2.jpg" alt="Engraving work">
+        <img src="photos/engraving-3.jpg" alt="Engraving work">
+        <img src="photos/engraving-4.jpg" alt="Engraving work">
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="wrap">
+      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      <p>&copy; <span id="year"></span> NAS-T Fab &amp; Finish LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

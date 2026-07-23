@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerakote — NAS-T Fab &amp; Finish LLC</title>
+  <meta name="description" content="Custom Cerakote services for firearms and car parts. Protect from elements and wear.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="banner">
+    <div class="wrap banner-inner">
+      <a class="logo" href="index.html">
+        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav-links" id="nav">
+        <a href="index.html">Home</a>
+        <a href="porting.html">Porting</a>
+        <a href="cerakote.html" class="active">Cerakote</a>
+        <a href="engraving.html">Laser Engraving</a>
+        <a href="contact.html">Contact / Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Service</p>
+      <h1>Cerakote</h1>
+      <p>Please reach out for quoting or questions.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap feature">
+      <div class="feature-img"><img src="photos/cerakote-1.jpg" alt="Cerakote finished firearm"></div>
+      <div class="feature-body">
+        <h2>Custom Cerakote services</h2>
+        <p class="lead">
+          Here at NAS-T we are proud to offer custom Cerakote services to meet your
+          needs. Cerakote is a great way to customize your firearm, as well as protect
+          it from the elements and wear.
+        </p>
+        <p class="lead" style="margin-top:16px;">
+          We also Cerakote beyond firearms &mdash; including car parts. Feel free to
+          reach out for a quote!
+        </p>
+        <p style="margin-top:20px;"><a class="btn" href="contact.html">Request a quote</a></p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="gallery">
+        <img src="photos/cerakote-2.jpg" alt="Cerakote job">
+        <img src="photos/cerakote-3.jpg" alt="Cerakote job">
+        <img src="photos/cerakote-4.jpg" alt="Cerakote job">
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="wrap">
+      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      <p>&copy; <span id="year"></span> NAS-T Fab &amp; Finish LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact / Order — NAS-T Fab &amp; Finish LLC</title>
+  <meta name="description" content="Contact NAS-T Fab & Finish LLC in Lebanon, Oregon for quotes and questions.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="banner">
+    <div class="wrap banner-inner">
+      <a class="logo" href="index.html">
+        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav-links" id="nav">
+        <a href="index.html">Home</a>
+        <a href="porting.html">Porting</a>
+        <a href="cerakote.html">Cerakote</a>
+        <a href="engraving.html">Laser Engraving</a>
+        <a href="contact.html" class="active">Contact / Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Contact / Order</h1>
+      <p>Please reach out for quoting or questions &mdash; we are happy to help.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">Reach the Shop</p>
+          <h2>Get a quote</h2>
+          <p class="lead">
+            Tell us what you have in mind &mdash; the firearm or part, the service you
+            want, and any design ideas &mdash; and we will get back to you.
+          </p>
+          <p style="margin-top:22px;">
+            <strong>Email:</strong><br>
+            <a href="mailto:REPLACE_WITH_EMAIL">REPLACE_WITH_EMAIL</a>
+          </p>
+          <p style="margin-top:14px;">
+            <strong>Instagram:</strong><br>
+            <a href="https://instagram.com/REPLACE_WITH_HANDLE" target="_blank" rel="noopener">@REPLACE_WITH_HANDLE</a>
+          </p>
+          <p style="margin-top:14px;">
+            <strong>Location:</strong><br>
+            Lebanon, Oregon
+          </p>
+        </div>
+
+        <div class="contact-form">
+          <p class="eyebrow">Send a Message</p>
+          <h2 style="margin-bottom:18px;">Quote request</h2>
+          <!-- Formspree: replace YOUR_FORM_ID after creating a free form. -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="service">Service needed</label>
+              <input type="text" id="service" name="service" placeholder="Cerakote, porting, engraving, other">
+            </div>
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea id="message" name="message" placeholder="Tell us about the firearm or part, colors, designs, timeline..." required></textarea>
+            </div>
+            <button class="btn" type="submit">Send request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="wrap">
+      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      <p>&copy; <span id="year"></span> NAS-T Fab &amp; Finish LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

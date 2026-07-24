@@ -269,31 +269,64 @@ footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: rgba(8, 11, 16, 0.94);
-  padding: 32px;
+  background: rgba(8, 11, 16, 0.96);
+}
+.lb.open { display: block; }
+
+/* Scroll container: when the image is shown at true size and is bigger
+   than the viewport, you can pan by scrolling. */
+.lb-stage {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 14px;
+  padding: 32px;
 }
-.lb.open { display: flex; }
 
+/* Default: fit the whole image on screen (quick overview). */
 .lb-img {
+  display: block;
   max-width: 100%;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 64px);
   width: auto;
   height: auto;
-  object-fit: contain;
   border-radius: 4px;
   border: 1px solid var(--line);
   background: var(--bg-2);
+  cursor: zoom-in;
+}
+
+/* Zoomed: show at real pixels. No browser scaling = no moire. */
+.lb.zoomed .lb-stage { align-items: flex-start; justify-content: flex-start; }
+.lb.zoomed .lb-img {
+  max-width: none;
+  max-height: none;
+  width: auto;
+  height: auto;
+  cursor: zoom-out;
 }
 
 .lb-cap {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
   color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
-  max-width: 70ch;
+  padding: 12px 20px;
+  background: linear-gradient(to top, rgba(8,11,16,0.9), rgba(8,11,16,0));
+  pointer-events: none;
+}
+.lb-hint {
+  position: fixed;
+  left: 0; right: 0; top: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
 .lb-close {
@@ -317,8 +350,8 @@ footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.
 .lb-close:hover { background: var(--blue); border-color: var(--blue); }
 
 @media (max-width: 760px) {
-  .lb { padding: 16px; }
-  .lb-img { max-height: calc(100vh - 100px); }
+  .lb-stage { padding: 16px; }
+  .lb-img { max-height: calc(100vh - 48px); }
 }
 
 /* ============================================================
@@ -327,11 +360,12 @@ footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.
    ============================================================ */
 .photo-duo img,
 .gallery img,
-.feature-img img,
-.lb-img {
+.feature-img img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: high-quality;
   -ms-interpolation-mode: bicubic;
   transform: translateZ(0);        /* GPU compositing, smoother scaling */
   backface-visibility: hidden;
 }
+/* Lightbox image gets NO rendering hints: at true size we want the raw
+   pixels with zero browser processing, which is what kills the moire. */

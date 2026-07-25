@@ -143,7 +143,7 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
 .gallery img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;          /* portrait, matches the photos: no crop */
   height: auto;
   object-fit: cover;
   object-position: center;

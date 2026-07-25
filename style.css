@@ -47,7 +47,7 @@ h1, h2, h3, .nav-links a, .logo-text {
   content: "";
   display: block;
   height: 2px;
-  background: linear-gradient(to right, var(--blue) 0%, var(--blue) 82%, var(--red) 82%, var(--red) 100%);
+  background: linear-gradient(to right, var(--red) 0%, var(--red) 18%, var(--blue) 18%, var(--blue) 100%);
 }
 .banner-inner {
   display: flex;
@@ -79,6 +79,19 @@ h1, h2, h3, .nav-links a, .logo-text {
   transition: width 0.2s ease;
 }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+/* Contact / Order stands out as a red pill button */
+.nav-links a.nav-cta {
+  color: #ffffff;
+  background: var(--red);
+  padding: 9px 18px;
+  border-radius: 4px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.nav-links a.nav-cta:hover { color: #ffffff; background: #d40000; transform: translateY(-1px); }
+.nav-links a.nav-cta.active { color: #ffffff; }
+/* no underline bar on the pill button */
+.nav-links a.nav-cta::after { display: none; }
 
 .nav-toggle { display: none; background: none; border: 0; color: var(--ink); font-size: 1.6rem; cursor: pointer; }
 

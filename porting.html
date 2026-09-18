@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Porting | NAS-T Fab &amp; Finish LLC</title>
-  <meta name="description" content="Barrel porting and slide windowing to help mitigate recoil. Custom designs available.">
+  <title>Porting &amp; Slide Windowing | NAS-T Fab &amp; Finish LLC</title>
+  <meta name="description" content="Barrel porting and slide windowing to help mitigate recoil. Custom window designs cut to your aesthetic. Lebanon, Oregon.">
+  <link rel="canonical" href="https://nastfabandfinish.com/porting.html">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#10141b">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NAS-T Fab &amp; Finish LLC">
+  <meta property="og:title" content="Porting &amp; Slide Windowing | NAS-T Fab &amp; Finish">
+  <meta property="og:description" content="Barrel porting and slide windowing to help mitigate recoil, with custom window designs.">
+  <meta property="og:url" content="https://nastfabandfinish.com/porting.html">
+  <meta property="og:image" content="https://nastfabandfinish.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,9 +29,9 @@
   <header class="banner">
     <div class="wrap banner-inner">
       <a class="logo" href="index.html">
-        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo" width="4793" height="1328">
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
       <nav class="nav-links" id="nav">
         <a href="index.html">Home</a>
         <a href="porting.html" class="active">Porting</a>
@@ -34,7 +51,7 @@
 
   <section>
     <div class="wrap feature">
-      <div class="feature-img"><img src="photos/porting-1.jpg" alt="Ported barrel and windowed slide"></div>
+      <div class="feature-img"><img src="photos/porting-1.jpg" srcset="photos/porting-1.jpg 1x, photos/porting-1@2x.jpg 2x" width="510" height="680" alt="Ported barrel and windowed slide"></div>
       <div class="feature-body">
         <h2>How it works</h2>
         <p class="lead">
@@ -52,9 +69,12 @@
     </div>
     <div class="wrap">
       <div class="gallery">
-        <img src="photos/porting-2.jpg" alt="Porting work">
-        <img src="photos/porting-3.jpg" alt="Slide windowing work">
-        <img src="photos/porting-4.jpg" alt="Custom slide cut">
+        <img src="photos/porting-5.jpg" srcset="photos/porting-5.jpg 1x, photos/porting-5@2x.jpg 2x" width="510" height="680" loading="lazy" decoding="async" alt="Graphite slide with custom cross window cut">
+        <img src="photos/porting-6.jpg" srcset="photos/porting-6.jpg 1x, photos/porting-6@2x.jpg 2x" width="510" height="680" loading="lazy" decoding="async" alt="Matched pair of slides with cross windowing, FDE and black">
+        <img src="photos/porting-7.jpg" srcset="photos/porting-7.jpg 1x, photos/porting-7@2x.jpg 2x" width="510" height="680" loading="lazy" decoding="async" alt="Ported barrel and slide window on a finished pistol">
+        <img src="photos/porting-8.jpg" srcset="photos/porting-8.jpg 1x, photos/porting-8@2x.jpg 2x" width="510" height="680" loading="lazy" decoding="async" alt="Close view of slide window and ported barrel">
+        <img src="photos/porting-2.jpg" srcset="photos/porting-2.jpg 1x, photos/porting-2@2x.jpg 2x" width="510" height="680" loading="lazy" decoding="async" alt="Porting work">
+        <img src="photos/porting-3.jpg" srcset="photos/porting-3.jpg 1x, photos/porting-3@2x.jpg 2x" width="510" height="680" loading="lazy" decoding="async" alt="Slide windowing work">
       </div>
     </div>
   </section>
@@ -62,12 +82,16 @@
 
   <footer>
     <div class="wrap">
-      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo" width="4793" height="1328">
       <p>&copy; <span id="year"></span> NAS-T Fab &amp; Finish LLC. All rights reserved.</p>
+      <p class="footer-note">
+        NAS-T Fab &amp; Finish LLC provides finishing and machining services on
+        customer-supplied items. This site does not sell firearms, firearm parts,
+        or ammunition. Online payments are for services and deposits only.
+      </p>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="lightbox.js"></script>
 </body>
 </html>

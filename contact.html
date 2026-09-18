@@ -4,7 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact / Order | NAS-T Fab &amp; Finish LLC</title>
-  <meta name="description" content="Contact NAS-T Fab & Finish LLC in Lebanon, Oregon for quotes and questions.">
+  <meta name="description" content="Contact NAS-T Fab &amp; Finish LLC in Lebanon, Oregon for quotes and questions on Cerakote, porting, slide windowing, and laser engraving.">
+  <link rel="canonical" href="https://nastfabandfinish.com/contact.html">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#10141b">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NAS-T Fab &amp; Finish LLC">
+  <meta property="og:title" content="Contact / Order | NAS-T Fab &amp; Finish">
+  <meta property="og:description" content="Get a quote on Cerakote, porting, slide windowing, or laser engraving. Lebanon, Oregon.">
+  <meta property="og:url" content="https://nastfabandfinish.com/contact.html">
+  <meta property="og:image" content="https://nastfabandfinish.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,9 +29,9 @@
   <header class="banner">
     <div class="wrap banner-inner">
       <a class="logo" href="index.html">
-        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+        <img src="photos/logo.png" alt="NAS-T Fab and Finish logo" width="4793" height="1328">
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
       <nav class="nav-links" id="nav">
         <a href="index.html">Home</a>
         <a href="porting.html">Porting</a>
@@ -54,6 +71,12 @@
             <strong>Location:</strong><br>
             Lebanon, Oregon
           </p>
+
+          <p class="lead" style="margin-top:26px;">
+            We work on items you send in or drop off. Your firearm or part stays
+            yours the whole time. We do not sell firearms, firearm parts, or
+            ammunition through this site.
+          </p>
         </div>
 
         <div class="contact-form">
@@ -63,11 +86,11 @@
           <form id="quote-form" action="https://formspree.io/f/mdaqpwwr" method="POST">
             <div class="field">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name" autocomplete="name" required>
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
             <div class="field">
               <label for="service">Service needed</label>
@@ -77,6 +100,14 @@
               <label for="message">Project details</label>
               <textarea id="message" name="message" placeholder="Tell us about the firearm or part, colors, designs, timeline..." required></textarea>
             </div>
+
+            <!-- Spam trap. Humans never see this, so anything that fills it in is
+                 a bot. Formspree discards any submission where _gotcha is set. -->
+            <div class="hp" aria-hidden="true">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
             <button class="btn" type="submit">Send request</button>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -84,6 +115,41 @@
       </div>
     </div>
   </section>
+
+  <!-- ===================================================================
+       DEPOSIT BUTTON (not live yet)
+
+       To turn this on:
+         1. In Square Dashboard, create a Payment Link for a fixed-price
+            item named something like "Custom Build Deposit".
+         2. Copy its URL.
+         3. Paste that URL over PASTE_SQUARE_LINK_HERE below.
+         4. Delete this comment's opening and closing markers so the
+            section renders.
+
+       Keep the wording about the deposit applying to the final invoice.
+       Charge it as a service deposit, never as a product.
+       =================================================================== -->
+  <!--
+  <section>
+    <div class="wrap">
+      <div class="callout">
+        <p class="eyebrow">Ready to Start</p>
+        <h2>Lock in your build</h2>
+        <p class="lead">
+          Custom work is quoted per project, so we take a deposit to reserve your
+          spot on the bench and cover the design consultation. The deposit applies
+          to your final invoice. We will reach out to nail down the details as soon
+          as it comes through.
+        </p>
+        <a class="btn" href="PASTE_SQUARE_LINK_HERE" target="_blank" rel="noopener">Place a deposit</a>
+        <p class="lead" style="margin-top:16px; font-size:0.9rem;">
+          Deposits are for services only. Non-refundable once work begins.
+        </p>
+      </div>
+    </div>
+  </section>
+  -->
 
   <script>
   (function () {
@@ -135,12 +201,16 @@
 
   <footer>
     <div class="wrap">
-      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo">
+      <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo" width="4793" height="1328">
       <p>&copy; <span id="year"></span> NAS-T Fab &amp; Finish LLC. All rights reserved.</p>
+      <p class="footer-note">
+        NAS-T Fab &amp; Finish LLC provides finishing and machining services on
+        customer-supplied items. This site does not sell firearms, firearm parts,
+        or ammunition. Online payments are for services and deposits only.
+      </p>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="lightbox.js"></script>
 </body>
 </html>

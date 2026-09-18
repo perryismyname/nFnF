@@ -1,7 +1,29 @@
-/* NAS-T lightbox: click a photo to view it. Click again to toggle between
-   fit-to-screen and true (100%) size. At true size the browser does no
-   scaling, so fine textures show with zero moire.
+/* NAS-T site script.
+
+   1. Lightbox: click a photo to view it. Click again to toggle between
+      fit-to-screen and true (100%) size. At true size the browser does no
+      scaling, so fine textures show with zero moire.
+   2. Mobile nav toggle.
+   3. Footer copyright year.
+
    Works in Edge, Chrome, Firefox, Safari, and on mobile. */
+
+/* ---------- mobile nav + footer year ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav    = document.getElementById('nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      // keep screen readers in step with the visual state
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+});
+
+/* ---------- lightbox ---------- */
 (function () {
   var box, stage, imgEl, caption, hint, closeBtn;
 

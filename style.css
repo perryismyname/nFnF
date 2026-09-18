@@ -192,8 +192,9 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
   transition: background 0.15s ease;
 }
 .btn:hover { background: var(--blue-hi); }
-.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-.btn-ghost:hover { border-color: var(--blue); background: var(--bg-3); }
+/* Several buttons in a row (404 page) need to breathe and to wrap on phones. */
+.btn + .btn { margin-left: 10px; }
+@media (max-width: 560px) { .btn { margin-bottom: 10px; } }
 
 /* ---------- SERVICE CARDS (home) ---------- */
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
@@ -232,6 +233,16 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
 .field input:focus, .field textarea:focus { outline: 2px solid var(--blue); border-color: var(--blue); }
 .field textarea { resize: vertical; min-height: 130px; }
 
+/* Honeypot. Kept out of sight without display:none, because some bots skip
+   fields that are display:none but will still fill this one in. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* form submit status message */
 .form-status { margin-top: 14px; font-size: 0.95rem; line-height: 1.4; }
 .form-status:empty { display: none; }
@@ -258,6 +269,15 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
 /* ---------- FOOTER ---------- */
 footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
 .footer-logo { width: 220px; height: auto; margin: 0 auto 16px; display: block; opacity: 0.92; }
+/* Scope-of-business line. Quiet on the page, but it is the first thing a
+   payment processor's reviewer looks for, so it appears on every page. */
+.footer-note {
+  max-width: 62ch;
+  margin: 14px auto 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #6f7d90;
+}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
@@ -280,13 +300,6 @@ footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.
   section { padding: 52px 0; }
 }
 
-
-/* ---------- IMAGE RENDERING ----------
-   Keeps downscaled photos as sharp as the browser allows. */
-.photo-duo img, .gallery img, .feature-img img {
-  image-rendering: auto;
-  -ms-interpolation-mode: bicubic;
-}
 
 /* ============================================================
    LIGHTBOX (click a photo to view full resolution)
@@ -386,17 +399,18 @@ footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.
 }
 
 /* ============================================================
-   HIGH-QUALITY IMAGE SCALING (cross-browser)
-   Pushes Edge/Chrome onto the better resampling path.
+   IMAGE SCALING
+
+   These photos used to be downscaled by the browser at display time, which
+   is what produced the moire on camo backgrounds, and the old fix was to
+   push Edge/Chrome onto a different resampling path with image-rendering
+   hints. That is no longer needed: every photo now ships a 1x and a 2x file
+   via srcset, so the browser picks one that lands at roughly 1:1 on screen
+   and does almost no scaling at all. The resampling now happens offline in
+   resize-photos.ps1, at high quality, which is where it belongs.
+
+   -webkit-optimize-contrast in particular is actively counterproductive
+   here: it can harden edges on the slight upscale a 1x screen still does.
+   So the photos deliberately carry no rendering hints, and neither does the
+   lightbox image, where true size means raw pixels and zero processing.
    ============================================================ */
-.photo-duo img,
-.gallery img,
-.feature-img img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: high-quality;
-  -ms-interpolation-mode: bicubic;
-  transform: translateZ(0);        /* GPU compositing, smoother scaling */
-  backface-visibility: hidden;
-}
-/* Lightbox image gets NO rendering hints: at true size we want the raw
-   pixels with zero browser processing, which is what kills the moire. */

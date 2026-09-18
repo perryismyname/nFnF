@@ -60,6 +60,10 @@
             want, and any design ideas) and we will get back to you.
           </p>
           <p style="margin-top:22px;">
+            <strong>Phone:</strong><br>
+            <a href="tel:+15412555815">541-255-5815</a>
+          </p>
+          <p style="margin-top:14px;">
             <strong>Email:</strong><br>
             <a href="mailto:Nastfandf@gmail.com">Nastfandf@gmail.com</a>
           </p>
@@ -119,16 +123,20 @@
   <!-- ===================================================================
        DEPOSIT BUTTON (not live yet)
 
-       To turn this on:
-         1. In Square Dashboard, create a Payment Link for a fixed-price
-            item named something like "Custom Build Deposit".
-         2. Copy its URL.
-         3. Paste that URL over PASTE_SQUARE_LINK_HERE below.
-         4. Delete this comment's opening and closing markers so the
-            section renders.
+       This is a Stripe Buy Button. It needs no server, which is why it works
+       on GitHub Pages. The publishable key below is meant to be public, so
+       it is safe in this file. The SECRET key never goes in here.
 
-       Keep the wording about the deposit applying to the final invoice.
-       Charge it as a service deposit, never as a product.
+       To turn this on:
+         1. Stripe Dashboard > Payment Links > create a link for a fixed-price
+            item named "Custom Build Deposit". Set it up as a SERVICE.
+         2. On that link, click "Buy button", style it, then Copy code.
+         3. Replace BUY_BUTTON_ID_HERE and PUBLISHABLE_KEY_HERE below with the
+            two values from that snippet.
+         4. Delete this comment's opening and closing markers so it renders.
+
+       Keep the wording about the deposit applying to the final invoice, and
+       charge it as a service deposit, never as a product.
        =================================================================== -->
   <!--
   <section>
@@ -142,7 +150,13 @@
           to your final invoice. We will reach out to nail down the details as soon
           as it comes through.
         </p>
-        <a class="btn" href="PASTE_SQUARE_LINK_HERE" target="_blank" rel="noopener">Place a deposit</a>
+        <div style="margin-top:22px;">
+          <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+          <stripe-buy-button
+            buy-button-id="BUY_BUTTON_ID_HERE"
+            publishable-key="PUBLISHABLE_KEY_HERE">
+          </stripe-buy-button>
+        </div>
         <p class="lead" style="margin-top:16px; font-size:0.9rem;">
           Deposits are for services only. Non-refundable once work begins.
         </p>
@@ -202,6 +216,13 @@
   <footer>
     <div class="wrap">
       <img class="footer-logo" src="photos/logo.png" alt="NAS-T Fab and Finish logo" width="4793" height="1328">
+      <p class="footer-contact">
+        <a href="tel:+15412555815">541-255-5815</a>
+        <span class="sep">|</span>
+        <a href="mailto:Nastfandf@gmail.com">Nastfandf@gmail.com</a>
+        <span class="sep">|</span>
+        Lebanon, Oregon
+      </p>
       <p>&copy; <span id="year"></span> NAS-T Fab &amp; Finish LLC. All rights reserved.</p>
       <p class="footer-note">
         NAS-T Fab &amp; Finish LLC provides finishing and machining services on

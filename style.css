@@ -269,6 +269,21 @@ p.lead { color: var(--muted); font-size: 1.05rem; margin-top: 14px; max-width: 6
 /* ---------- FOOTER ---------- */
 footer { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
 .footer-logo { width: 220px; height: auto; margin: 0 auto 16px; display: block; opacity: 0.92; }
+/* Phone, email and town, on every page. A local shop loses the customers who
+   just want to call, so this sits above the copyright rather than buried. */
+.footer-contact {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.footer-contact a { color: var(--blue-hi); text-decoration: none; }
+.footer-contact a:hover { text-decoration: underline; }
+.footer-contact .sep { color: var(--line); margin: 0 10px; }
+@media (max-width: 560px) {
+  /* stack rather than wrap awkwardly mid-address on a phone */
+  .footer-contact .sep { display: block; height: 0; overflow: hidden; margin: 4px 0; }
+}
+
 /* Scope-of-business line. Quiet on the page, but it is the first thing a
    payment processor's reviewer looks for, so it appears on every page. */
 .footer-note {
